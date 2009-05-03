@@ -1,5 +1,5 @@
 #!/bin/bash
-# virn, written 2007-03-15 by Jonas Kramer <jkr at nex dot scrapping dot cc>
+# virn, Copyright (C) 2007-2009 by Jonas Kramer. All rights reserved.
 # Published under the terms of the GNU General Public License (GPL).
 
 # This is a more portable BASH remake of my old script "vimove" which depended
