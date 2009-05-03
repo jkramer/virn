@@ -1,0 +1,8 @@
+
+virn, Copyright (C) 2007-2009 by Jonas Kramer. All rights reserved.
+Published under the terms of the GNU General Public License (GPL).
+
+Run this script with lots of files as parameters and edit their names using the
+powerful features of your favorite $EDITOR.
+
+No requirements besides standard shell tools and of course an $EDITOR.
