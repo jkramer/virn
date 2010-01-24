@@ -16,7 +16,7 @@ ARGV=("$@")
 test ${#ARGV} -eq 0 && exit
 
 # Create targets file.
-TARGETS="`mktemp`"
+TARGETS="/tmp/virn-$RANDOM"
 for FILE in "$@"; do echo "$FILE" >> $TARGETS; done
 
 # Start the $EDITOR so we can edit our file names.
@@ -37,7 +37,7 @@ if $EDITOR $TARGETS; then
 	while read TARGET; do
 		SOURCE="${ARGV[$FILENO]}"
 		if [ "$SOURCE" != "$TARGET" ]; then
-			mv -f -- "$SOURCE" "$TARGET" 
+			mv -f -- "$SOURCE" "$TARGET"
 		fi
 		FILENO=$[$FILENO+1]
 	done < $TARGETS
