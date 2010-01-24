@@ -13,7 +13,7 @@ fi
 
 # Exit before doing anything if there are no arguments anyway.
 ARGV=("$@")
-test ${#ARGV} -eq 0 && exit
+[ -z $@ ] && exit
 
 # Create targets file.
 TARGETS="/tmp/virn-$RANDOM"
@@ -26,7 +26,7 @@ if $EDITOR $TARGETS; then
 
 	# Exit with error message if number of arguments and line count o
 	# targets file differ.
-	if [ "$COUNT" -ne "${#@}" ]; then
+	if [ "$COUNT" -ne "$#" ]; then
 		echo "Numbers of files mismatch." >&2
 		rm $TARGETS
 		exit -1
