@@ -13,7 +13,7 @@ fi
 
 # Exit before doing anything if there are no arguments anyway.
 ARGV=("$@")
-[ -z $@ ] && exit
+[ -z $# ] && exit
 
 # Create targets file.
 TARGETS="/tmp/virn-$RANDOM"
