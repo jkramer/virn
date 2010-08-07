@@ -24,7 +24,7 @@ if $EDITOR $TARGETS; then
 	FILENO=0
 	COUNT="`wc -l $TARGETS | grep -o -E '^[0-9]+'`"
 
-	# Exit with error message if number of arguments and line count o
+	# Exit with error message if number of arguments and line count of
 	# targets file differ.
 	if [ "$COUNT" -ne "$#" ]; then
 		echo "Numbers of files mismatch." >&2
