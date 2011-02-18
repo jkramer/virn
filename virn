@@ -5,11 +5,13 @@
 # This is a more portable BASH remake of my old script "vimove" which depended
 # on ZSH.
 
+die () {
+    echo "$@" >&2
+    exit -1
+}
+
 # Verify that there's an $EDITOR defined.
-if [ -z "$EDITOR" ]; then
-	echo "\$EDITOR not defined." >&2
-	exit -1
-fi
+[ -z "$EDITOR" ] && die '$EDITOR not defined.'
 
 # Exit before doing anything if there are no arguments anyway.
 ARGV=("$@")
@@ -27,9 +29,8 @@ if $EDITOR $TARGETS; then
 	# Exit with error message if number of arguments and line count of
 	# targets file differ.
 	if [ "$COUNT" -ne "$#" ]; then
-		echo "Numbers of files mismatch." >&2
 		rm $TARGETS
-		exit -1
+        die 'Numbers of files mismatch.'
 	fi
 
 	# Read targets file line by line and rename the source
@@ -44,3 +45,4 @@ if $EDITOR $TARGETS; then
 fi
 
 rm $TARGETS
+
