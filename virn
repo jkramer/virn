@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # virn, Copyright (C) 2007-2010 by Jonas Kramer. All rights reserved.
 # Published under the terms of the GNU General Public License (GPL).
 
@@ -24,7 +24,7 @@ for FILE in "$@"; do echo "$FILE" >> $TARGETS; done
 # Start the $EDITOR so we can edit our file names.
 if $EDITOR $TARGETS; then
 	FILENO=0
-	COUNT="`wc -l $TARGETS | grep -o -E '^[0-9]+'`"
+	COUNT="`wc -l $TARGETS | sed -nre 's/^[ \t]*([0-9]+).*$/\1/p'`"
 
 	# Exit with error message if number of arguments and line count of
 	# targets file differ.
